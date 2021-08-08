@@ -74,9 +74,11 @@ public class MainActivity extends AppCompatActivity {
                 if (isChecked) {
                     // The toggle is enabled
                     setActivityBackgroundColor(Color.DKGRAY); //51-204-255
+                    text.setTextColor(Color.parseColor("#FFFFFF"));
                 } else {
                     // The toggle is disabled
                     setActivityBackgroundColor(Color.WHITE); //255-255-255 : 51
+                    text.setTextColor(Color.parseColor("#000000")); //OG is a different color
                  }
             }
         });
