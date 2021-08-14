@@ -99,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 ArrayList<String> nam = new ArrayList<String>();
+                ArrayList<String> nam1 = new ArrayList<String>();
                 StringBuilder builder = new StringBuilder();
                 try {
                     Document doc = Jsoup.connect ("https://www.google.com/search?q="+word+"+stats").timeout(6000).get();
@@ -123,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
                             for (int p = (pos+2) ; p < (pos + 10) ; p++) { //html data collection 10 is the list
                                 //System.out.print(nam.get(p) + "\n");
                                 builder.append(nam.get(p) + "\n");
+                                nam1.add(nam.get(p));
                             }
                         }
                         //System.out.print(nam.get(k) + "\n");
@@ -133,7 +135,14 @@ public class MainActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        text.setText(builder.toString());
+                        text.setText("MINS: " + nam1.get(0) + "\n" +
+                                "PPG: " + nam1.get(1) + "\n" +
+                                "FG%: " + nam1.get(2) + "\n" +
+                                "3PT%: " + nam1.get(3) + "\n" +
+                                "REB: " + nam1.get(4) + "\n" +
+                                "AST: " + nam1.get(5) + "\n" +
+                                "STL: " + nam1.get(6) + "\n" +
+                                "BLK: " + nam1.get(7)); //builder.toString()
                     }
                 });
             }
@@ -164,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
                     name = playerName.get(0) + " " + playerName.get(1);
 
                     Document doc = Jsoup.connect ("https://www.gettyimages.ca/photos/"+name+"?family=editorial&phrase="+name).timeout(6000).get ();
-                    Elements temp = doc.select ("img.gallery-asset__thumb.gallery-mosaic-asset__thumb"); //table.vk_tbl.Uekwlc
+                    Elements temp = doc.select ("img.MosaicAsset-module__thumb___YJI_C"); //table.vk_tbl.Uekwlc - gallery-asset__thumb.gallery-mosaic-asset__thumb
                     //ArrayList<String> nam = new ArrayList();
                     int i = 0;
                     for (Element element:temp) {
