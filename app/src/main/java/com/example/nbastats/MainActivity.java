@@ -173,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
                     name = playerName.get(0) + " " + playerName.get(1);
 
                     Document doc = Jsoup.connect ("https://www.gettyimages.ca/photos/"+name+"?family=editorial&phrase="+name).timeout(6000).get ();
-                    Elements temp = doc.select ("img.MosaicAsset-module__thumb___c595A"); //table.vk_tbl.Uekwlc - gallery-asset__thumb.gallery-mosaic-asset__thumb - MosaicAsset-module__thumb___YJI_C
+                    Elements temp = doc.select ("img.MosaicAsset-module__thumb___epLhd"); //table.vk_tbl.Uekwlc - gallery-asset__thumb.gallery-mosaic-asset__thumb - MosaicAsset-module__thumb___YJI_C
                     //ArrayList<String> nam = new ArrayList();
                     int i = 0;
                     for (Element element:temp) {
